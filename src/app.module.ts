@@ -8,6 +8,8 @@ import { TestNotificationsModule } from './test-notifications/test-notifications
 import { LoggingMiddleware } from './common/middlewares/logging.middleware';
 import { NotificationsConsumerModule } from './notifications-consumer/notifications-consumer.module';
 import { BullModule } from '@nestjs/bullmq';
+import { TerminusModule } from '@nestjs/terminus';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
@@ -32,6 +34,8 @@ import { BullModule } from '@nestjs/bullmq';
         },
       }),
     }),
+    TerminusModule,
+    HttpModule,
     NotificationProvidersModule,
     TestNotificationsModule,
     NotificationsConsumerModule,
